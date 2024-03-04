@@ -2,14 +2,23 @@ h1 {
     color: blue;
 }
 
-p {
-    color: red;
-}
-
 button {
     padding: 5px;
+    list-style: none; /* para remover os pontos da lista */
+    padding: 0; /* para remover o espaçamento à esquerda */
 }
 
 ul {
     color: green;
+}
+li{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 5px;
+}
+
+button img {
+    width: 15px; 
+    height: 15px; 
 }
