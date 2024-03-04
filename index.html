@@ -20,12 +20,12 @@ várias abas que constantemente mantém abertas. -->
     <label for="Adicionar novo item"></label>
     <input placeholder="Adicione um novo item" type="text" id="addNovoItem" >
 
-    <button>Adicionar</button>
+    <button onclick="">Adicionar</button>
 
-    <ul>
-        <li>Estudar HTML e CSS</li>
-        <li>Estudar JavaScript</li>
-        <li>Fazer Exercícios</li>
+    <ul id="lista">
+        <li><input type="checkbox">Estudar HTML e CSS <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
+        <li><input type="checkbox">Estudar JavaScript <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
+        <li><input type="checkbox">Fazer Exercícios <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
     </ul>
 </body>
 </html>
