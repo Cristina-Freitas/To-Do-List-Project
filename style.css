@@ -2,43 +2,86 @@ body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-image: url("./img/spaceWork.jpg");
+    background-size: cover; /*para cobrir toda a área*/
+    background-repeat: no-repeat; /*para não repetir*/
+    background-attachment: fixed; /*fixa a imagem para que ela não role*/
+    color: #333;
+
 }
 
 .container{
-    max-width: 300px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    
+    background-color: rgba(255, 255, 255, 0.937); /* Fundo semitransparente para melhor leitura */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.75); /* Sombra suave */
 }
 
-h1 {
+
+.titulo {
+    color:  rgb(25, 6, 6); 
+    text-align: center;
+    text-transform: uppercase; /* Texto em maiúsculas */
+    font-size: 2em; /* Tamanho do texto */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* h1 {
     color: blue;
     text-align: center;
-}
+} */
 
 .input-section{
     margin-bottom: 15px;
 }
 
-button {
-    padding: 5px;   
+.input-tarefa {
+    padding: 10px;
+    width: 80%; /* Largura ajustável */
+    border: 1px solid #504942; 
+    border-radius: 8px;
+    margin-right: 10px;
 }
 
+.botao-adicionar {
+    padding: 10px;
+    background-color: #0aca20; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.9s ease; /* Transição suave na cor de fundo */
+}
+
+.botao-adicionar:hover {
+    background-color: #056c30; /* Verde mais escuro no hover */
+}
+
+/* button {
+    padding: 5px;   
+} */
+
 ul {
-    color: green;
     list-style: none; /* para remover os pontos da lista */
     padding: 0; /* para remover o espaçamento à esquerda */
 }
 
-#lista{
+/* #lista{
     background-color: gainsboro;
-}
+} */
+
 li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 2px; */
-    margin-bottom: 10px;
+    background-color: rgba(128, 128, 128, 0.167);
+    margin-bottom: 10px; 
+    padding: 10px;
+    border: 2px solid #ecf0f1; /* Borda cinza claro */
+    border-radius: 5px;
 
 }
 
@@ -51,6 +94,10 @@ button img {
 
 li button{
     margin-left: 10px;
+}
+
+li input {
+    margin-right: 10px;
 }
 
 li span{
