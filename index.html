@@ -15,17 +15,35 @@ várias abas que constantemente mantém abertas. -->
     <title>To-Do-List</title>
 </head>
 <body>
+    <div class="container">
+
     <h1>To Do List</h1>
 
+    <div class="input-section">
     <label for="Adicionar novo item"></label>
     <input placeholder="Adicione um novo item" type="text" id="addNovoItem" >
 
     <button onclick="">Adicionar</button>
+    </div>
 
     <ul id="lista">
-        <li><input type="checkbox">Estudar HTML e CSS <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
-        <li><input type="checkbox">Estudar JavaScript <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
-        <li><input type="checkbox">Fazer Exercícios <button onclick="removerItem"><img src="img/excluir.png" alt="Remover"></button></li>
+        <li>
+            <input type="checkbox">
+           <span> Estudar HTML e CSS </span>
+            <button onclick="removerItem">
+                <img src="img/excluir.png" alt="Remover">
+            </button></li>
+        <li>
+            <input type="checkbox">
+            <span>Estudar JavaScript</span> 
+            <button onclick="removerItem"><img src="img/excluir.png" alt="Remover">
+            </button></li>
+        <li><input type="checkbox">
+            <span>Fazer Exercícios</span>
+             <button onclick="removerItem"><img src="img/excluir.png" alt="Remover">
+            </button></li>
+            
     </ul>
+    </div>
 </body>
 </html>
