@@ -1,24 +1,60 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
 h1 {
     color: blue;
+    text-align: center;
+}
+
+.input-section{
+    margin-bottom: 15px;
 }
 
 button {
-    padding: 5px;
-    list-style: none; /* para remover os pontos da lista */
-    padding: 0; /* para remover o espaçamento à esquerda */
+    padding: 5px;   
 }
 
 ul {
     color: green;
+    list-style: none; /* para remover os pontos da lista */
+    padding: 0; /* para remover o espaçamento à esquerda */
+}
+
+#lista{
+    background-color: gainsboro;
 }
 li{
     display: flex;
     align-items: center;
-    justify-content: left;
-    margin-bottom: 5px;
+    justify-content: space-between;
+    /* margin-bottom: 2px; */
+    margin-bottom: 10px;
+
 }
 
 button img {
     width: 15px; 
-    height: 15px; 
+    height: 15px;
+    /* position: relative; */
+    
 }
+
+li button{
+    margin-left: 10px;
+}
+
+li span{
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
