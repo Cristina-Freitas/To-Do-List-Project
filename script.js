@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(){
         });
 
         botaoExcluir.addEventListener("click", function(){
-            removerItem(this);
+            confirmarExclusao(removerItem, this);// função callback removerItem
         });
 
         imgExcluir.src = 'img/excluir.png';
@@ -55,6 +55,14 @@ document.addEventListener("DOMContentLoaded", function(){
         } else {
             // Se o checkbox estiver desmarcado, remove o estilo de texto concluído
             spanTexto.style.textDecoration = 'none';
+        }
+    }
+
+    function confirmarExclusao(callback, botao) {
+        const confirmacao = confirm("Tem certeza que deseja excluir esta tarefa?");
+        
+        if (confirmacao) {
+            callback(botao);
         }
     }
 
