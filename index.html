@@ -12,6 +12,7 @@ várias abas que constantemente mantém abertas. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>To-Do-List</title>
 </head>
 <body>
@@ -21,29 +22,12 @@ várias abas que constantemente mantém abertas. -->
 
     <div class="input-section">
     <label for="Adicionar novo item"></label>
-    <input class="input-tarefa" placeholder="Adicione um novo item" type="text" id="addNovoItem" >
+    <input class="input-tarefa" placeholder="Adicione uma tarefa" type="text" id="addNovoItem" >
 
     <button class="botao-adicionar" onclick="">Adicionar</button>
     </div>
 
-    <ul id="lista">
-        <li>
-            <input type="checkbox">
-           <span> Estudar HTML e CSS </span>
-            <button onclick="removerItem">
-                <img src="img/excluir.png" alt="Remover">
-            </button></li>
-        <li class="concluido">
-            <input type="checkbox">
-            <span>Estudar JavaScript</span> 
-            <button onclick="removerItem"><img src="img/excluir.png" alt="Remover">
-            </button></li>
-        <li><input type="checkbox">
-            <span>Fazer Exercícios</span>
-             <button onclick="removerItem"><img src="img/excluir.png" alt="Remover">
-            </button></li>
-            
-    </ul>
+    <ul id="lista"></ul>
     </div>
 </body>
 </html>
