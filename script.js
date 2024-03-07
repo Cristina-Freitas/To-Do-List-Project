@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function(){
     const lista = document.getElementById("lista"); 
     const contadorTarefas = document.getElementById("contadorTarefas");
 
+        // Carregar a lista do localStorage ao carregar a página
+        carregarListaLocalStorage();
+
     botaoAdd.addEventListener('click', function(){
         novoItem();
     });
@@ -15,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
         const textoTarefa = addItem.value.trim();
 
         if(textoTarefa === ""){
-            alert("Insira uma atividade!");
+            alert("Insira uma tarefa!");
             return;
         }
 
@@ -28,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
         checkbox.type = "checkbox";
         checkbox.addEventListener("change", function(){
             marcarDesmarcarConcluido(this);
+
         });
 
         botaoExcluir.addEventListener("click", function(){
@@ -47,9 +51,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
         addItem.value = '';
 
-        
         // Atualizar o contador de tarefas
         atualizarContador();
+
+       // Salvar a lista no localStorage
+        salvarListaLocalStorage();
     }
 
     function marcarDesmarcarConcluido(checkbox) {
@@ -66,14 +72,17 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 // Atualizar o contador de tarefas
                 atualizarContador();
+
+                salvarListaLocalStorage();
     }
 
     function confirmarExclusao(callback, botao) {
-        const confirmacao = confirm("Tem certeza que deseja excluir esta tarefa?");
+        const confirmacao = confirm(" Essa ação é permanente. Tem certeza que deseja excluir esta tarefa?");
         
         if (confirmacao) {
             callback(botao);
             atualizarContador();
+            salvarListaLocalStorage();
         }
     }
 
@@ -94,5 +103,52 @@ document.addEventListener("DOMContentLoaded", function(){
     function atualizarContadorExcluidas() {
         const contadorTarefasExcluidasElemento = document.getElementById('contadorTarefasExcluidas');
         contadorTarefasExcluidasElemento.textContent = `${contadorTarefasExcluidas} Tarefa${contadorTarefasExcluidas !== 1 ? 's' : ''} excluída${contadorTarefasExcluidas !== 1 ? 's' : ''}`;
+    }
+
+    function salvarListaLocalStorage() {
+        const listaTarefas = Array.from(lista.children).map(item => ({
+            texto: item.querySelector('span').textContent,
+            concluido: item.querySelector('input').checked
+        }));
+
+        localStorage.setItem("tasks", JSON.stringify(listaTarefas));
+    }
+
+    function carregarListaLocalStorage() {
+        const listaTarefas = localStorage.getItem("tasks");
+        if (listaTarefas) {
+            const parsedListaTarefas = JSON.parse(listaTarefas);
+            parsedListaTarefas.forEach(tarefa => {
+                const addNovoItem = document.createElement("li");
+                const checkbox = document.createElement("input");
+                const spanTexto = document.createElement("span");
+                const botaoExcluir = document.createElement("button");
+                const imgExcluir = document.createElement("img");
+    
+                checkbox.type = "checkbox";
+                checkbox.checked = tarefa.concluido;
+                checkbox.addEventListener("change", function(){
+                    marcarDesmarcarConcluido(this);
+                });
+    
+                botaoExcluir.addEventListener("click", function(){
+                    confirmarExclusao(removerItem, this);
+                });
+    
+                imgExcluir.src = 'img/excluir.png';
+                imgExcluir.alt = 'Remover';
+    
+                spanTexto.textContent = tarefa.texto;
+    
+                addNovoItem.appendChild(checkbox);
+                addNovoItem.appendChild(spanTexto);
+                addNovoItem.appendChild(botaoExcluir);
+                botaoExcluir.appendChild(imgExcluir);
+                lista.appendChild(addNovoItem);
+    
+                // Atualiza o contador ao carregar a lista do localStorage
+                atualizarContador();
+            });
+        }
     }
 })
