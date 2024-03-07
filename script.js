@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function(){
         const imgExcluir = document.createElement("img");    
     
         checkbox.type = "checkbox";
+        checkbox.addEventListener("change", function(){
+            marcarDesmarcarConcluido(this);
+        });
+
         botaoExcluir.addEventListener("click", function(){
             removerItem(this);
         });
@@ -40,6 +44,20 @@ document.addEventListener("DOMContentLoaded", function(){
         addItem.value = '';
 
     }
+
+    function marcarDesmarcarConcluido(checkbox) {
+        const itemLista = checkbox.parentNode;
+        const spanTexto = itemLista.querySelector('span');
+
+        if (checkbox.checked) {
+            // Se o checkbox estiver marcado, aplica o estilo de texto concluído
+            spanTexto.style.textDecoration = 'line-through';
+        } else {
+            // Se o checkbox estiver desmarcado, remove o estilo de texto concluído
+            spanTexto.style.textDecoration = 'none';
+        }
+    }
+
 
     function removerItem(botao) {
         const itemLista = botao.parentNode;
