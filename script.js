@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
+
+    let contadorTarefasExcluidas = 0;
+
     const addItem = document.getElementById("addNovoItem");
     const botaoAdd = document.querySelector(".botao-adicionar");
     const lista = document.getElementById("lista"); 
+    const contadorTarefas = document.getElementById("contadorTarefas");
 
     botaoAdd.addEventListener('click', function(){
         novoItem();
@@ -43,6 +47,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
         addItem.value = '';
 
+        
+        // Atualizar o contador de tarefas
+        atualizarContador();
     }
 
     function marcarDesmarcarConcluido(checkbox) {
@@ -56,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function(){
             // Se o checkbox estiver desmarcado, remove o estilo de texto concluído
             spanTexto.style.textDecoration = 'none';
         }
+
+                // Atualizar o contador de tarefas
+                atualizarContador();
     }
 
     function confirmarExclusao(callback, botao) {
@@ -63,12 +73,26 @@ document.addEventListener("DOMContentLoaded", function(){
         
         if (confirmacao) {
             callback(botao);
+            atualizarContador();
         }
     }
-
 
     function removerItem(botao) {
         const itemLista = botao.parentNode;
         lista.removeChild(itemLista);
+
+        contadorTarefasExcluidas++;
+        atualizarContadorExcluidas();
+        atualizarContador();
+    }
+
+    function atualizarContador() {
+        const numeroTarefas = lista.childElementCount;
+        contadorTarefas.textContent = `Quantidade de tarefas: ${numeroTarefas}`;
+    }
+
+    function atualizarContadorExcluidas() {
+        const contadorTarefasExcluidasElemento = document.getElementById('contadorTarefasExcluidas');
+        contadorTarefasExcluidasElemento.textContent = `${contadorTarefasExcluidas} Tarefa${contadorTarefasExcluidas !== 1 ? 's' : ''} excluída${contadorTarefasExcluidas !== 1 ? 's' : ''}`;
     }
 })
