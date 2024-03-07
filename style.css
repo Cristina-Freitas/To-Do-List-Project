@@ -64,6 +64,11 @@ body{
     padding: 5px;   
 } */
 
+#contadorTarefas, #contadorTarefasExcluidas {
+    display: inline-block;
+    margin-right: 50px;  /* Espaço entre os dois contadores */
+}
+
 ul {
     list-style: none; /* para remover os pontos da lista */
     padding: 0; /* para remover o espaçamento à esquerda */
