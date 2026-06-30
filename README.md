@@ -4,6 +4,8 @@ Aplicação web simples para gerenciamento de tarefas desenvolvida com **HTML, C
 
 O usuário pode adicionar tarefas, marcar como concluídas e excluir itens da lista. As tarefas são armazenadas no **Local Storage**, permitindo que permaneçam salvas mesmo após atualizar ou fechar o navegador.
 
+[![GitHub License](https://img.shields.io/github/license/Cristina-Freitas/To-Do-List-Project)](LICENSE)
+
 🔗 **Acesse o projeto online:**  
 https://cristina-freitas.github.io/To-Do-List-Project/
 
